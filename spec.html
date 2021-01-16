@@ -18111,13 +18111,6 @@
         WhileStatement[?Yield, ?Await, ?Return]
         ForStatement[?Yield, ?Await, ?Return]
         ForInOfStatement[?Yield, ?Await, ?Return]
-
-      ForDeclaration[Yield, Await] :
-        LetOrConst ForBinding[?Yield, ?Await]
-
-      ForBinding[Yield, Await] :
-        BindingIdentifier[?Yield, ?Await]
-        BindingPattern[?Yield, ?Await]
     </emu-grammar>
 
     <emu-clause id="sec-iteration-statements-semantics">
@@ -18363,6 +18356,13 @@
           [+Await] `for` `await` `(` [lookahead != `let`] LeftHandSideExpression[?Yield, ?Await] `of` AssignmentExpression[+In, ?Yield, ?Await] `)` Statement[?Yield, ?Await, ?Return]
           [+Await] `for` `await` `(` `var` ForBinding[?Yield, ?Await] `of` AssignmentExpression[+In, ?Yield, ?Await] `)` Statement[?Yield, ?Await, ?Return]
           [+Await] `for` `await` `(` ForDeclaration[?Yield, ?Await] `of` AssignmentExpression[+In, ?Yield, ?Await] `)` Statement[?Yield, ?Await, ?Return]
+
+        ForDeclaration[Yield, Await] :
+          LetOrConst ForBinding[?Yield, ?Await]
+
+        ForBinding[Yield, Await] :
+          BindingIdentifier[?Yield, ?Await]
+          BindingPattern[?Yield, ?Await]
       </emu-grammar>
       <emu-note>
         <p>This section is extended by Annex <emu-xref href="#sec-initializers-in-forin-statement-heads"></emu-xref>.</p>
@@ -40493,12 +40493,12 @@ THH:mm:ss.sss
     <emu-prodref name="ExpressionStatement"></emu-prodref>
     <emu-prodref name="IfStatement"></emu-prodref>
     <emu-prodref name="IterationStatement"></emu-prodref>
-    <emu-prodref name="ForDeclaration"></emu-prodref>
-    <emu-prodref name="ForBinding"></emu-prodref>
     <emu-prodref name="DoWhileStatement"></emu-prodref>
     <emu-prodref name="WhileStatement"></emu-prodref>
     <emu-prodref name="ForStatement"></emu-prodref>
     <emu-prodref name="ForInOfStatement"></emu-prodref>
+    <emu-prodref name="ForDeclaration"></emu-prodref>
+    <emu-prodref name="ForBinding"></emu-prodref>
     <emu-prodref name="ContinueStatement"></emu-prodref>
     <emu-prodref name="BreakStatement"></emu-prodref>
     <emu-prodref name="ReturnStatement"></emu-prodref>
